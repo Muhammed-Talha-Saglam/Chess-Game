@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 6621513158667189357}
   - component: {fileID: -5171775079201455822}
   m_Layer: 0
-  m_Name: Sphere 1
-  m_TagString: Untagged
+  m_Name: Queen
+  m_TagString: Rook
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 049bb8a9fe39f3e42ae985dc30affa2b, type: 2}
+  - {fileID: 2100000, guid: 77a9abf5bf5eb5a448c3bd9335e126ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

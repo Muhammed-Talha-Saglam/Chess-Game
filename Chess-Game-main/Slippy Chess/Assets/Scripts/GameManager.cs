@@ -7,6 +7,21 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
+
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+
+            return _instance;
+        }
+    }
+
+
+
     [SerializeField] TMP_Text time;
     int seconds = 0;
     

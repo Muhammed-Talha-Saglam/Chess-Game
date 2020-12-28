@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 2099935196037259609}
   - component: {fileID: 911117490389860347}
   m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
+  m_Name: Pawn
+  m_TagString: Pawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
