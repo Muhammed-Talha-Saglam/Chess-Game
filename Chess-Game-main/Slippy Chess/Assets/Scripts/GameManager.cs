@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text time;
     int seconds = 0;
+    public bool isGameOver;
     
     
 
@@ -31,6 +32,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InvokeRepeating("Timer", 0, 1);
+        isGameOver = false;
     }
 
     // Update is called once per frame

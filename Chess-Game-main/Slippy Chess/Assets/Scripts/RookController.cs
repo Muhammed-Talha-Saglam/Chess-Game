@@ -5,10 +5,17 @@ using UnityEngine;
 public class RookController : MonoBehaviour
 {
 
+
+    public GameObject gameController;
+    GameManager gameControllerScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GameObject.FindGameObjectWithTag("GameController");
+        gameControllerScript = gameController.GetComponent<GameManager>();
+
+
     }
 
     // Update is called once per frame
@@ -53,7 +60,15 @@ public class RookController : MonoBehaviour
         {
             if (hit.transform.gameObject.CompareTag("Player"))
             {
-                Debug.Log(hit.transform.gameObject.name);
+
+                Vector3 newPosition = hit.transform.position;
+
+                Destroy(hit.transform.gameObject);
+
+                gameObject.transform.position = newPosition;
+                gameControllerScript.isGameOver = true;
+
+         //       Debug.Log(hit.transform.gameObject.name);
             }
         }
     } 
