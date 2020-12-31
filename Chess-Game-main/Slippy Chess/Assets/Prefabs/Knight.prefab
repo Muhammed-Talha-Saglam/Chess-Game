@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 2160489353143204807}
   - component: {fileID: 4931016956065141464}
   - component: {fileID: 9099131454077490389}
-  - component: {fileID: -1882793700411778283}
+  - component: {fileID: -7207662628556198324}
   - component: {fileID: 1398637752554603271}
-  - component: {fileID: 2099935196037259609}
-  - component: {fileID: 911117490389860347}
-  - component: {fileID: 8400934896070176660}
+  - component: {fileID: 6621513158667189357}
+  - component: {fileID: -5171775079201455822}
+  - component: {fileID: 4879447801917708510}
   m_Layer: 0
-  m_Name: Pawn
-  m_TagString: Pawn
+  m_Name: Knight
+  m_TagString: Knight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2881c9b63d7fef1438b647772e8cd48e, type: 2}
+  - {fileID: 2100000, guid: 6911c5c9576f32541bd2b26cea066798, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-1882793700411778283
+--- !u!114 &-7207662628556198324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2099935196037259609
+--- !u!54 &6621513158667189357
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &911117490389860347
+--- !u!114 &-5171775079201455822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9ec1ddf0b17f4469a4406556c27e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8400934896070176660
+--- !u!114 &4879447801917708510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9214660311220838940}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e160652f4b8960947b9cdd31cf9e2693, type: 3}
+  m_Script: {fileID: 11500000, guid: 99303dcba5e14b64b9457234c66224a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}

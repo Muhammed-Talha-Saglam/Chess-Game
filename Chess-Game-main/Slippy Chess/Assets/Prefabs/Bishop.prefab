@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 2160489353143204807}
   - component: {fileID: 4931016956065141464}
   - component: {fileID: 9099131454077490389}
-  - component: {fileID: -1882793700411778283}
+  - component: {fileID: -7207662628556198324}
   - component: {fileID: 1398637752554603271}
-  - component: {fileID: 2099935196037259609}
-  - component: {fileID: 911117490389860347}
-  - component: {fileID: 8400934896070176660}
+  - component: {fileID: 6621513158667189357}
+  - component: {fileID: 4402504562100634218}
+  - component: {fileID: -5171775079201455822}
   m_Layer: 0
-  m_Name: Pawn
-  m_TagString: Pawn
+  m_Name: Bishop
+  m_TagString: Bishop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2881c9b63d7fef1438b647772e8cd48e, type: 2}
+  - {fileID: 2100000, guid: 59c40b1dccc20774f8f7dfbac8b9b285, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &-1882793700411778283
+--- !u!114 &-7207662628556198324
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +110,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2099935196037259609
+--- !u!54 &6621513158667189357
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,7 +126,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &911117490389860347
+--- !u!114 &4402504562100634218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214660311220838940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13dd0741a6457a1479d9b506298790b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+--- !u!114 &-5171775079201455822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,16 +151,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9ec1ddf0b17f4469a4406556c27e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8400934896070176660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9214660311220838940}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e160652f4b8960947b9cdd31cf9e2693, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameController: {fileID: 0}

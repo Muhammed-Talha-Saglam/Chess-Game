@@ -4,6 +4,8 @@ using UnityEngine;
 using TMPro;
 using System;
 
+
+
 public class GameManager : MonoBehaviour
 {
 
@@ -22,7 +24,9 @@ public class GameManager : MonoBehaviour
 
 
 
-    [SerializeField] TMP_Text time;
+    [SerializeField] TMP_Text timeText;
+    [SerializeField] TMP_Text gameOverText;
+
     int seconds = 0;
     public bool isGameOver;
     
@@ -43,8 +47,15 @@ public class GameManager : MonoBehaviour
 
     void Timer()
     {
-        seconds += 1;
-        time.text = "Time: " + seconds;
+        if (!isGameOver)
+        {
+            seconds += 1;
+            timeText.text = "Time: " + seconds;
+        } else
+        {
+            gameOverText.enabled = true;
+        }
+
     }
 
 }

@@ -10,6 +10,9 @@ TagManager:
   - Rook
   - Pawn
   - Queen
+  - Bishop
+  - Knight
+  - Empty
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1398637752554603271}
   - component: {fileID: 6621513158667189357}
   - component: {fileID: -5171775079201455822}
+  - component: {fileID: 352417079462119292}
   m_Layer: 0
   m_Name: Queen
   m_TagString: Rook
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53263e6f12250c44bb684a4dfe74284a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
 --- !u!135 &1398637752554603271
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -136,3 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9ec1ddf0b17f4469a4406556c27e47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &352417079462119292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9214660311220838940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 054d8d2d29580ce49b9dc97d3ea8231b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
