@@ -23,87 +23,41 @@ public class KnightController : MonoBehaviour
     void Update()
     {
 
-        var right45 = (transform.forward + transform.right).normalized;
-        // since transform.left doesn't exist, you can use -transform.right instead
-        var left45 = (transform.forward - transform.right).normalized;
-
-        Ray ray1 = new Ray(transform.position, right45);
-        Ray ray2 = new Ray(transform.position, right45 * -1);
-        Ray ray3 = new Ray(transform.position, left45);
-        Ray ray4 = new Ray(transform.position, left45 * -1);
-
-        Ray ray5 = new Ray(transform.position, transform.forward);
-        Ray ray6 = new Ray(transform.position, transform.forward * -1);
-        Ray ray7 = new Ray(transform.position, transform.right);
-        Ray ray8 = new Ray(transform.position, transform.right * -1);
-
-
-
-        Debug.DrawRay(ray1.origin, ray1.direction, Color.blue);
-        Debug.DrawRay(ray2.origin, ray2.direction, Color.blue);
-        Debug.DrawRay(ray3.origin, ray3.direction, Color.blue);
-        Debug.DrawRay(ray4.origin, ray4.direction, Color.blue);
-
-
-        Debug.DrawRay(ray5.origin, ray5.direction, Color.blue);
-        Debug.DrawRay(ray6.origin, ray6.direction, Color.blue);
-        Debug.DrawRay(ray7.origin, ray7.direction, Color.blue);
-        Debug.DrawRay(ray8.origin, ray8.direction, Color.blue);
-
-        RaycastHit hit1;
-        Physics.Raycast(ray1, out hit1, 4.0f);
-
-        RaycastHit hit2;
-        Physics.Raycast(ray2, out hit2, 4.0f);
-
-        RaycastHit hit3;
-        Physics.Raycast(ray3, out hit3, 4.0f);
-
-        RaycastHit hit4;
-        Physics.Raycast(ray4, out hit4, 4.0f);
-
-
-        RaycastHit hit5;
-        Physics.Raycast(ray5, out hit5, 4.0f);
-
-        RaycastHit hit6;
-        Physics.Raycast(ray6, out hit6, 4.0f);
-
-        RaycastHit hit7;
-        Physics.Raycast(ray7, out hit7, 4.0f);
-
-        RaycastHit hit8;
-        Physics.Raycast(ray8, out hit8, 4.0f);
-
-        CheckMove(hit1);
-        CheckMove(hit2);
-        CheckMove(hit3);
-        CheckMove(hit4);
-
-        CheckMove(hit5);
-        CheckMove(hit6);
-        CheckMove(hit7);
-        CheckMove(hit8);
-
-    }
-
-    void CheckMove(RaycastHit hit)
-    {
-
-        if (hit.transform != null)
+        if(!gameControllerScript.isGameOver)
         {
-            if (hit.transform.gameObject.CompareTag("Player"))
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            var x = Mathf.Abs(transform.position.x - player.transform.position.x);
+            var z = Mathf.Abs(transform.position.z - player.transform.position.z);
+
+
+            bool xRange1 = x > 3.0f && x < 4.0f;
+            bool zRange1 = z > 6.0f && z < 8.0f;
+
+
+            bool xRange2 = z > 3.0f && z < 4.0f;
+            bool zRange2 = x > 6.0f && x < 8.0f;
+
+            if (xRange1 && zRange1)
             {
 
-                Vector3 newPosition = hit.transform.position;
-
-                Destroy(hit.transform.gameObject);
-
-                gameObject.transform.position = newPosition;
+                var newPosition = player.transform.position;
+                Destroy(player);
+                transform.position = newPosition;
                 gameControllerScript.isGameOver = true;
 
-                // Debug.Log(hit.transform.gameObject.name);
+            }
+            else if (xRange2 && zRange2)
+            {
+                var newPosition = player.transform.position;
+                Destroy(player);
+                transform.position = newPosition;
+                gameControllerScript.isGameOver = true;
+
             }
         }
+
+
     }
 }

@@ -13,6 +13,7 @@ TagManager:
   - Bishop
   - Knight
   - Empty
+  - King
   layers:
   - Default
   - TransparentFX
