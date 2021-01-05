@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
-using System;
+using UnityEngine.UI;
+
+
 
 
 
@@ -26,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text timeText;
     [SerializeField] TMP_Text gameOverText;
-
+    [SerializeField] GameObject resetButton; 
+ 
     int seconds = 0;
     public bool isGameOver;
     
@@ -54,8 +58,14 @@ public class GameManager : MonoBehaviour
         } else
         {
             gameOverText.enabled = true;
+            resetButton.SetActive(true);
         }
 
+    }
+
+     public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
