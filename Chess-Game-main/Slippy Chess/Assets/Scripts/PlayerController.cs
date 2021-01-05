@@ -31,13 +31,10 @@ public class PlayerController : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hit;
-          
 
-            if (Physics.Raycast(ray, out hit))
+            if(Physics.Raycast(ray, out hit))
             {
-
-                Debug.Log(hit.transform.gameObject.name);
-
+                Debug.Log(hit.transform.position);
 
                 var x = Mathf.Abs(hit.transform.position.x - transform.position.x);
                 var z = Mathf.Abs(hit.transform.position.z - transform.position.z);
@@ -52,21 +49,16 @@ public class PlayerController : MonoBehaviour
 
                 if (xRange1 && zRange1)
                 {
-
-
                     if (hit.transform.gameObject.tag == "WhiteTile" || hit.transform.gameObject.tag == "blackTile")
                     {
                         Vector3 newPos = new Vector3(hit.transform.position.x, 5.6f, hit.transform.position.z);
 
                         transform.position = newPos;
-                      
-
+                        Debug.Log(hit.transform.position);
                     }
                     else
                     {
-
                         transform.position = hit.transform.position;
-                 //       Destroy(hit.transform.gameObject);
                     }
                 }
                 
@@ -77,13 +69,11 @@ public class PlayerController : MonoBehaviour
                         Vector3 newPos = new Vector3(hit.transform.position.x, 5.6f, hit.transform.position.z);
 
                         transform.position = newPos;
-                    
+                        Debug.Log(hit.transform.position);
                     }
                     else
                     {
                         transform.position = hit.transform.position;
-                   //     Destroy(hit.transform.gameObject);
-
                     }
                 }
                
@@ -103,9 +93,6 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);            
             
         }
-
-      
-
     }
 
 

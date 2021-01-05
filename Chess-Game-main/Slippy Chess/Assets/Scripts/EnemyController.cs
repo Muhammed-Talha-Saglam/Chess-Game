@@ -20,7 +20,6 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collided" + gameObject.name);
             Destroy(gameObject);
         }
     }

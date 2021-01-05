@@ -14,7 +14,8 @@ public class QueenController : MonoBehaviour
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameManager>();
 
-   }
+
+    }
 
 
 
