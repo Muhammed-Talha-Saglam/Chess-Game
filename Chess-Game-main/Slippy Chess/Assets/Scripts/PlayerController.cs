@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public GameObject gameController;
     GameManager gameControllerScript;
 
+    [SerializeField] GameObject particle;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -81,6 +84,12 @@ public class PlayerController : MonoBehaviour
             }
         }
    
+    }
+
+
+    private void OnDestroy()
+    {
+        Instantiate(particle, transform.position, transform.rotation);
     }
 
 

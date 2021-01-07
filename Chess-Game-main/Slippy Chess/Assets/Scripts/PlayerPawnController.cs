@@ -9,6 +9,9 @@ public class PlayerPawnController : MonoBehaviour
     
     public GameObject gameController;
     GameManager gameControllerScript;
+
+    [SerializeField] GameObject particle;
+
     [SerializeField] Button leftButton;
     [SerializeField] Button rightButton;
     [SerializeField] Button upButton;
@@ -38,15 +41,64 @@ public class PlayerPawnController : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.gameObject.name);
+
+                Debug.Log(hit.transform.position +  " --- " + hit.transform.gameObject.name );
+                
+
+
+                var x = hit.transform.position.x - transform.position.x;
+                var z = hit.transform.position.z - transform.position.z;
+
+                bool xRange1 = x < -2.5f && x > -4.0f;
+                bool zRange1 = z > 2.5f && z < 4.0f;
+
+                bool xRange2 = x > 2.5f && x < 4.0f;
+                bool zRange2 = z > 2.5f && z < 4.0f;
+
+                bool xRange3 = x > -1.0f && x < 1.0f;
+                bool zRange3 = z > 2.5f && z < 4.0f;
+
+
+                if (xRange1 && zRange1)
+                {
+                    if( CheckLeftMove())
+                    {
+                        MoveLeft();
+                    }
+                }
+
+                if (xRange2 && zRange2)
+                {
+                    if( CheckRightMove() )
+                    {
+                        MoveRight();
+                    }
+                }
+
+                if (xRange3 && zRange3)
+                {
+                    if (CheckForwardMove())
+                    {
+                        MoveForward();
+                    }
+
+                }
+
+            
+            
             }
         }
 
         
-        leftButton.gameObject.SetActive(CheckLeftMove());
-        rightButton.gameObject.SetActive(CheckRightMove());
-        upButton.gameObject.SetActive(CheckForwardMove());
+//        leftButton.gameObject.SetActive(CheckLeftMove());
+//        rightButton.gameObject.SetActive(CheckRightMove());
+//        upButton.gameObject.SetActive(CheckForwardMove());
 
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(particle, transform.position, transform.rotation);
     }
 
 
@@ -113,6 +165,7 @@ public class PlayerPawnController : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
 
+        
         return hit.transform != null ;
     }
 

@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
+  particle: {fileID: 100002, guid: 6ecf76dc4f268d340b2666896a954bcc, type: 3}
