@@ -49,11 +49,34 @@ public class SpawnManager : MonoBehaviour
         Instantiate(BlackTilePrefab, new Vector3(1.6f, spawnY, spawnZ), Quaternion.identity);
         Instantiate(WhiteTilePrefab, new Vector3(4.8f, spawnY, spawnZ), Quaternion.identity);
 
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(-4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(-1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        
+
+        GameObject c = chessPieces[Random.Range(0, 12)];
+        if(c.tag != "Empty")
+        {
+            Instantiate(c, new Vector3(-4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
+
+        }
+        c = chessPieces[Random.Range(0, 12)];
+        if (c.tag != "Empty")
+        {
+            Instantiate(c, new Vector3(-1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
+
+        }
+
+        c = chessPieces[Random.Range(0, 12)];
+        if (c.tag != "Empty")
+        {
+            Instantiate(c, new Vector3(1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
+
+        }
+
+        c = chessPieces[Random.Range(0, 12)];
+        if (c.tag != "Empty")
+        {
+            Instantiate(c, new Vector3(4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
+
+        }
+
 
     }
 
@@ -65,10 +88,6 @@ public class SpawnManager : MonoBehaviour
         Instantiate(WhiteTilePrefab, new Vector3(1.6f, spawnY, spawnZ), Quaternion.identity);
         Instantiate(BlackTilePrefab, new Vector3(4.8f, spawnY, spawnZ), Quaternion.identity);
 
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(-4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(-1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-        Instantiate(chessPieces[Random.Range(0, 12)], new Vector3(4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
     }
 
 }
