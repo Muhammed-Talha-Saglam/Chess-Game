@@ -10,7 +10,7 @@ public class PlayerPawnController : MonoBehaviour
     public GameObject gameController;
     GameManager gameControllerScript;
 
-    [SerializeField] GameObject particle;
+  //  [SerializeField] GameObject particle;
 
     [SerializeField] Button leftButton;
     [SerializeField] Button rightButton;
@@ -96,10 +96,10 @@ public class PlayerPawnController : MonoBehaviour
 
     }
 
-    private void OnDestroy()
-    {
-        Instantiate(particle, transform.position, transform.rotation);
-    }
+    //private void OnDestroy()
+    //{
+    //   Instantiate(particle, transform.position, transform.rotation);
+    //}
 
 
     private void OnTriggerEnter(Collider other)
@@ -134,7 +134,7 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveLeft()
     {
 
-            transform.position += new Vector3(-3.2f, 0, 3.2f);
+            transform.position += new Vector3(-3.2f, 0, 3.0f);
         
 
     }
@@ -143,13 +143,13 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveRight()
     {
 
-        transform.position += new Vector3(3.2f, 0, 3.2f);
+        transform.position += new Vector3(3.2f, 0, 3.0f);
     
     }
 
     public void MoveForward()
     {
-            transform.position += new Vector3(0, 0, 3.2f);
+            transform.position += new Vector3(0, 0, 3.0f);
      
     }
 

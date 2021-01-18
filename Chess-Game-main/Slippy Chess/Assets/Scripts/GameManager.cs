@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
-
+using DG.Tweening;
 
 
 public class GameManager : MonoBehaviour
@@ -40,6 +40,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DOTween.Init(true, true);
+
         InvokeRepeating("Timer", 0, 1);
         isGameOver = false;
     }

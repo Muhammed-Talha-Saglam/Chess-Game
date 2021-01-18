@@ -22,7 +22,7 @@ public class MoveTile : MonoBehaviour
     {
         if(!gameControllerScript.isGameOver)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * 1.5f);
+            transform.Translate(Vector3.back * Time.deltaTime * 4f);
         }
     }
 

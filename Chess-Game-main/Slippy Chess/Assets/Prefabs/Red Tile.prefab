@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 6371735021104389725}
   - component: {fileID: 8508320941933609469}
   m_Layer: 0
-  m_Name: White Tile
-  m_TagString: WhiteTile
+  m_Name: Red Tile
+  m_TagString: RedTile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f80c110be3d69124ab56f62902f92e5c, type: 2}
+  - {fileID: 2100000, guid: 77a9abf5bf5eb5a448c3bd9335e126ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

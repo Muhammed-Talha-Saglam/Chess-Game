@@ -1,93 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using Newtonsoft.Json;
+
+
+
 
 public class SpawnManager : MonoBehaviour
 {
 
-    public GameObject BlackTilePrefab;
-    public GameObject WhiteTilePrefab;
+
+
+    [SerializeField] GameObject floors;
+    [SerializeField] GameObject pad;
 
     public GameObject[] chessPieces;
 
-    float spawnZ = 23.5f;
-    float spawnY = 5.05f;
+     
+   
+
 
 
     // Start is called before the first frame update
     void Start()
-    {       
-       // InvokeRepeating("SpawnTiles2", 0.0f, 4.0f);
-       // InvokeRepeating("SpawnTiles1", 2.0f, 4.0f);
-
-    }
-
-    // Update is called once per frame
-    void Update()
     {
-        
+
+     
+
+        DOTween.Init();
+    
     }
+
+   
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("blackTile"))
+
+
+        if (other.gameObject.CompareTag("RedTile"))
         {
-            SpawnTiles1();
-        } 
-        else if (other.gameObject.CompareTag("WhiteTile"))
-        {
-            SpawnTiles2();
+            floors.gameObject.transform
+                .DORotate(floors.gameObject.transform.eulerAngles + new Vector3(-90, 0, 0), 1.0f)
+                .OnComplete(() => Invoke("SpawnNewPad", 0.5f));
+              
+
+            
         }
+
+
     }
 
-    void SpawnTiles1()
+    void SpawnNewPad()
     {
-
-
-        Instantiate(BlackTilePrefab, new Vector3(-4.8f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(WhiteTilePrefab, new Vector3(-1.6f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(BlackTilePrefab, new Vector3(1.6f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(WhiteTilePrefab, new Vector3(4.8f, spawnY, spawnZ), Quaternion.identity);
-
-
-        GameObject c = chessPieces[Random.Range(0, 12)];
-        if(c.tag != "Empty")
-        {
-            Instantiate(c, new Vector3(-4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-
-        }
-        c = chessPieces[Random.Range(0, 12)];
-        if (c.tag != "Empty")
-        {
-            Instantiate(c, new Vector3(-1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-
-        }
-
-        c = chessPieces[Random.Range(0, 12)];
-        if (c.tag != "Empty")
-        {
-            Instantiate(c, new Vector3(1.6f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-
-        }
-
-        c = chessPieces[Random.Range(0, 12)];
-        if (c.tag != "Empty")
-        {
-            Instantiate(c, new Vector3(4.8f, spawnY + 0.5f, spawnZ), Quaternion.identity);
-
-        }
-
-
+        Instantiate(pad, new Vector3(1.6f, 5.05f, 7f), transform.rotation);
     }
 
-    void SpawnTiles2()
-    {
 
-        Instantiate(WhiteTilePrefab, new Vector3(-4.8f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(BlackTilePrefab, new Vector3(-1.6f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(WhiteTilePrefab, new Vector3(1.6f, spawnY, spawnZ), Quaternion.identity);
-        Instantiate(BlackTilePrefab, new Vector3(4.8f, spawnY, spawnZ), Quaternion.identity);
-
-    }
+    
 
 }

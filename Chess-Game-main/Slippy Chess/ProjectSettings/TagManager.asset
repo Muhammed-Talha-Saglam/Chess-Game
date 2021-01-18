@@ -14,6 +14,8 @@ TagManager:
   - Knight
   - Empty
   - King
+  - RedTile
+  - Spawner
   layers:
   - Default
   - TransparentFX
