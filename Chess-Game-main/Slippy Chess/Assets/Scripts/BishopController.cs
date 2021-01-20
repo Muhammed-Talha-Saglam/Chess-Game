@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using DG.Tweening;
 public class BishopController : MonoBehaviour
 {
 
@@ -69,8 +69,9 @@ public class BishopController : MonoBehaviour
                 Vector3 newPosition = hit.transform.position;
 
                 Destroy(hit.transform.gameObject);
+                gameObject.transform.DOMove(newPosition, 1.0f);
 
-                gameObject.transform.position = newPosition;
+//                gameObject.transform.position = newPosition;
                 gameControllerScript.isGameOver = true;
 
                 // Debug.Log(hit.transform.gameObject.name);

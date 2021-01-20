@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class KnightController : MonoBehaviour
 {
@@ -44,7 +45,8 @@ public class KnightController : MonoBehaviour
 
                 var newPosition = player.transform.position;
                 Destroy(player);
-                transform.position = newPosition;
+                gameObject.transform.DOMove(newPosition, 1.0f);
+               // transform.position = newPosition;
                 gameControllerScript.isGameOver = true;
 
             }
@@ -52,7 +54,8 @@ public class KnightController : MonoBehaviour
             {
                 var newPosition = player.transform.position;
                 Destroy(player);
-                transform.position = newPosition;
+                gameObject.transform.DOMove(newPosition, 1.0f);
+             //   transform.position = newPosition;
                 gameControllerScript.isGameOver = true;
 
             }

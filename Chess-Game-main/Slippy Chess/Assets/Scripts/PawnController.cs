@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+
 
 public class PawnController : MonoBehaviour
 {
@@ -56,7 +58,9 @@ public class PawnController : MonoBehaviour
 
                 Destroy(hit.transform.gameObject);
 
-                gameObject.transform.position = newPosition;
+                gameObject.transform.DOMove(newPosition, 1.0f);
+
+//                gameObject.transform.position = newPosition;
                 gameControllerScript.isGameOver = true;
 
                 // Debug.Log(hit.transform.gameObject.name);
