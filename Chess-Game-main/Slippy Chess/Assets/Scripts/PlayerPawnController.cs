@@ -12,9 +12,9 @@ public class PlayerPawnController : MonoBehaviour
 
   //  [SerializeField] GameObject particle;
 
-    [SerializeField] Button leftButton;
-    [SerializeField] Button rightButton;
-    [SerializeField] Button upButton;
+    //[SerializeField] Button leftButton;
+    //[SerializeField] Button rightButton;
+    //[SerializeField] Button upButton;
 
 
     // Start is called before the first frame update
@@ -28,9 +28,29 @@ public class PlayerPawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+        var left45 = (transform.forward - transform.right).normalized;
+
+        Ray ray22 = new Ray(transform.position, transform.forward);
+        RaycastHit hitt;
+
+        Debug.DrawRay(ray22.origin, ray22.direction, Color.blue);
+        Physics.Raycast(ray22, out hitt, 4.0f);
+
         if (!gameControllerScript.isGameOver)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * 1.5f);
+            transform.Translate(Vector3.back * Time.deltaTime * 4f);
+
+            
+
+
+            if(hitt.transform != null)
+            {
+                Debug.Log(" update - -- - " + hitt.transform.name);
+
+            }
+
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -134,7 +154,7 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveLeft()
     {
 
-            transform.position += new Vector3(-3.2f, 0, 3.0f);
+            transform.position += new Vector3(-3.0f, 0, 3.0f);
         
 
     }
@@ -143,7 +163,7 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveRight()
     {
 
-        transform.position += new Vector3(3.2f, 0, 3.0f);
+        transform.position += new Vector3(3.0f, 0, 3.0f);
     
     }
 
@@ -163,9 +183,15 @@ public class PlayerPawnController : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
+
         Physics.Raycast(ray, out hit, 4.0f);
 
-        
+        if(hit.transform != null)
+        {
+            Debug.Log("Left move ----" + hit.transform.name);
+
+        }
+
         return hit.transform != null ;
     }
 
@@ -182,6 +208,11 @@ public class PlayerPawnController : MonoBehaviour
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
 
+
+        if (hit.transform != null)
+        {
+            Debug.Log("Right move ----" + hit.transform.name);
+        }
         return hit.transform != null ;
     }
 
@@ -194,6 +225,12 @@ public class PlayerPawnController : MonoBehaviour
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
+
+
+        if (hit.transform != null)
+        {
+            Debug.Log("Forward move ----" + hit.transform.name);
+        }
         return hit.transform == null;
     }
 }

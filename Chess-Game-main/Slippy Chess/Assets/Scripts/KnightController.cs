@@ -32,12 +32,12 @@ public class KnightController : MonoBehaviour
             var z = Mathf.Abs(transform.position.z - player.transform.position.z);
 
 
-            bool xRange1 = x > 3.0f && x < 4.0f;
-            bool zRange1 = z > 6.0f && z < 8.0f;
+            bool xRange1 = x > 2.5f && x < 3.5f;
+            bool zRange1 = z > 5.0f && z < 7.0f;
 
 
-            bool xRange2 = z > 3.0f && z < 4.0f;
-            bool zRange2 = x > 6.0f && x < 8.0f;
+            bool xRange2 = z > 2.5f && z < 3.5f;
+            bool zRange2 = x > 5.0f && x < 7.0f;
 
             if (xRange1 && zRange1)
             {

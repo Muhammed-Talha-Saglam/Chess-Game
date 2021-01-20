@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
 
-    [SerializeField] GameObject particle;
+    //[SerializeField] GameObject particle;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(particle, transform.position, transform.rotation);
+            //Instantiate(particle, transform.position, transform.rotation);
 
             Destroy(gameObject);
             

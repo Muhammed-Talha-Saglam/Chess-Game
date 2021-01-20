@@ -16,6 +16,7 @@ TagManager:
   - King
   - RedTile
   - Spawner
+  - Pad
   layers:
   - Default
   - TransparentFX

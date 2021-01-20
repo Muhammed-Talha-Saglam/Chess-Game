@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         DOTween.Init(true, true);
 
         InvokeRepeating("Timer", 0, 1);
