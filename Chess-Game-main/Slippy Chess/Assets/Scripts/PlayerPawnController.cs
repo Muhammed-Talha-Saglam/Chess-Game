@@ -7,10 +7,17 @@ public class PlayerPawnController : MonoBehaviour
 {
     
     
-    public GameObject gameController;
+    GameObject gameController;
     GameManager gameControllerScript;
 
-  //  [SerializeField] GameObject particle;
+    [SerializeField] GameObject particle;
+    [SerializeField] GameObject particleDeath;
+
+    AudioSource audio;
+
+    [SerializeField] AudioClip forwardSound;
+    [SerializeField] AudioClip leftRighSound;
+
 
     //[SerializeField] Button leftButton;
     //[SerializeField] Button rightButton;
@@ -22,6 +29,8 @@ public class PlayerPawnController : MonoBehaviour
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameManager>();
+
+        audio = GetComponent<AudioSource>();
     }
 
 
@@ -83,6 +92,7 @@ public class PlayerPawnController : MonoBehaviour
                 {
                     if( CheckLeftMove())
                     {
+                        Instantiate(particle, hit.transform.position, transform.rotation);
                         MoveLeft();
                     }
                 }
@@ -91,6 +101,7 @@ public class PlayerPawnController : MonoBehaviour
                 {
                     if( CheckRightMove() )
                     {
+                        Instantiate(particle, hit.transform.position, transform.rotation);
                         MoveRight();
                     }
                 }
@@ -116,21 +127,21 @@ public class PlayerPawnController : MonoBehaviour
 
     }
 
-    //private void OnDestroy()
-    //{
-    //   Instantiate(particle, transform.position, transform.rotation);
-    //}
 
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Destroyer"))
         {
-
             gameControllerScript.isGameOver = true;
             Destroy(gameObject);
 
         }
+    }
+
+    private void OnDestroy()
+    {
+        Instantiate(particleDeath, transform.position, transform.rotation);
     }
 
 
@@ -154,7 +165,8 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveLeft()
     {
 
-            transform.position += new Vector3(-3.0f, 0, 3.0f);
+        audio.PlayOneShot(leftRighSound);
+        transform.position += new Vector3(-3.0f, 0, 3.0f);
         
 
     }
@@ -162,14 +174,15 @@ public class PlayerPawnController : MonoBehaviour
 
     public void MoveRight()
     {
-
+        audio.PlayOneShot(leftRighSound);
         transform.position += new Vector3(3.0f, 0, 3.0f);
     
     }
 
     public void MoveForward()
     {
-            transform.position += new Vector3(0, 0, 3.0f);
+        audio.PlayOneShot(forwardSound);
+        transform.position += new Vector3(0, 0, 3.0f);
      
     }
 

@@ -124,10 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde26ec19aca1c8408cc4d4a6e7749f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
-  leftButton: {fileID: 0}
-  rightButton: {fileID: 0}
-  upButton: {fileID: 0}
+  gameController: {fileID: 100012, guid: a905d8e5159ffeb46baa8d2a7624717f, type: 3}
+  particle: {fileID: 0}
 --- !u!1001 &6727849401575761782
 PrefabInstance:
   m_ObjectHideFlags: 0

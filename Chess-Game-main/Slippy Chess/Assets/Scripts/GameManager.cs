@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
 
         InvokeRepeating("Timer", 0, 1);
         isGameOver = false;
+
     }
 
     // Update is called once per frame
