@@ -26,6 +26,12 @@ public class KingController : MonoBehaviour
     void Update()
     {
 
+        CheckKingMove();      
+
+    }
+
+    void CheckKingMove()
+    {
         var right45 = (transform.forward + transform.right).normalized;
         // since transform.left doesn't exist, you can use -transform.right instead
         var left45 = (transform.forward - transform.right).normalized;
@@ -78,19 +84,18 @@ public class KingController : MonoBehaviour
         RaycastHit hit8;
         Physics.Raycast(ray8, out hit8, 4.0f);
 
-        CheckMove(hit1);
-        CheckMove(hit2);
-        CheckMove(hit3);
-        CheckMove(hit4);
+        CanBeatPlayer(hit1);
+        CanBeatPlayer(hit2);
+        CanBeatPlayer(hit3);
+        CanBeatPlayer(hit4);
 
-        CheckMove(hit5);
-        CheckMove(hit6);
-        CheckMove(hit7);
-        CheckMove(hit8);
-
+        CanBeatPlayer(hit5);
+        CanBeatPlayer(hit6);
+        CanBeatPlayer(hit7);
+        CanBeatPlayer(hit8);
     }
 
-    void CheckMove(RaycastHit hit)
+    void CanBeatPlayer(RaycastHit hit)
     {
 
         if (hit.transform != null)

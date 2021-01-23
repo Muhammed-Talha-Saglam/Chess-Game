@@ -23,8 +23,13 @@ public class KnightController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!gameControllerScript.isGameOver)
+        {
+            transform.Translate(Vector3.right * Time.deltaTime * 4f);
+        }
 
-        if(!gameControllerScript.isGameOver)
+
+        if (!gameControllerScript.isGameOver)
         {
 
             GameObject player = GameObject.FindGameObjectWithTag("Player");

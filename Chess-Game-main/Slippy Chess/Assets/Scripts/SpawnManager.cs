@@ -135,46 +135,46 @@ public class SpawnManager : MonoBehaviour
         new Vector3(4.55f, 5.8f, 39.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 42.5f),
-        new Vector3(-1.4f, 5.3f, 42.5f),
-        new Vector3(1.6f, 5.3f, 42.5f),
-        new Vector3(4.55f, 5.3f, 42.5f),
+        new Vector3(-4.4f, 5.45f, 42.5f),
+        new Vector3(-1.4f, 5.45f, 42.5f),
+        new Vector3(1.6f, 5.45f, 42.5f),
+        new Vector3(4.55f, 5.45f, 42.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 45.5f),
-        new Vector3(-1.4f, 5.3f, 45.5f),
-        new Vector3(1.6f, 5.3f, 45.5f),
-        new Vector3(4.55f, 5.3f, 45.5f),
+        new Vector3(-4.4f, 5.45f, 45.5f),
+        new Vector3(-1.4f, 5.45f, 45.5f),
+        new Vector3(1.6f, 5.45f, 45.5f),
+        new Vector3(4.55f, 5.45f, 45.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 48.5f),
-        new Vector3(-1.4f, 5.3f, 48.5f),
-        new Vector3(1.6f, 5.3f, 48.5f),
-        new Vector3(4.55f, 5.3f, 48.5f),
+        new Vector3(-4.4f, 5.45f, 48.5f),
+        new Vector3(-1.4f, 5.45f, 48.5f),
+        new Vector3(1.6f, 5.45f, 48.5f),
+        new Vector3(4.55f, 5.45f, 48.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 51.5f),
-        new Vector3(-1.4f, 5.3f, 51.5f),
-        new Vector3(1.6f, 5.3f, 51.5f),
-        new Vector3(4.55f, 5.3f, 51.5f),
+        new Vector3(-4.4f, 5.45f, 51.5f),
+        new Vector3(-1.4f, 5.45f, 51.5f),
+        new Vector3(1.6f, 5.45f, 51.5f),
+        new Vector3(4.55f, 5.45f, 51.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 54.5f),
-        new Vector3(-1.4f, 5.3f, 54.5f),
-        new Vector3(1.6f, 5.3f, 54.5f),
-        new Vector3(4.55f, 5.3f, 54.5f),
+        new Vector3(-4.4f, 5.45f, 54.5f),
+        new Vector3(-1.4f, 5.45f, 54.5f),
+        new Vector3(1.6f, 5.45f, 54.5f),
+        new Vector3(4.55f, 5.45f, 54.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 57.5f),
-        new Vector3(-1.4f, 5.3f, 57.5f),
-        new Vector3(1.6f, 5.3f, 57.5f),
-        new Vector3(4.55f, 5.3f, 57.5f),
+        new Vector3(-4.4f, 5.45f, 57.5f),
+        new Vector3(-1.4f, 5.45f, 57.5f),
+        new Vector3(1.6f, 5.45f, 57.5f),
+        new Vector3(4.55f, 5.45f, 57.5f),
       },
       {
-        new Vector3(-4.4f, 5.3f, 60.5f),
-        new Vector3(-1.4f, 5.3f, 60.5f),
-        new Vector3(1.6f, 5.3f, 60.5f),
-        new Vector3(4.55f, 5.3f, 60.5f),      }
+        new Vector3(-4.4f, 5.45f, 60.5f),
+        new Vector3(-1.4f, 5.45f, 60.5f),
+        new Vector3(1.6f, 5.45f, 60.5f),
+        new Vector3(4.55f, 5.45f, 60.5f),      }
     };
 
 
@@ -182,8 +182,6 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
 
         DOTween.Init();
 
@@ -228,14 +226,14 @@ public class SpawnManager : MonoBehaviour
                 switch(paths[randomPath, a, b])
                 {
                     case "N":
-                        Instantiate(knight, positions[a, b], transform.rotation);
+                        Instantiate(knight, positions[a, b], knight.transform.rotation);
                         break;
                     case "P":
                         Instantiate(pawn, positions[a,b], transform.rotation );
                         break;
-                    case "p":
-                        Instantiate(player, positions[a, b] - new Vector3(0, 0.4f, 0), transform.rotation);
-                        break;
+                    //case "p":
+                    //    Instantiate(player, positions[a, b] - new Vector3(0, 0.4f, 0), transform.rotation);
+                    //    break;
                     case "R":
                         Instantiate(rook, positions[a, b], transform.rotation);
                         break;
@@ -243,7 +241,7 @@ public class SpawnManager : MonoBehaviour
                         Instantiate(bishop, positions[a, b], transform.rotation);
                         break;
                     case "K":
-                        Instantiate(king, positions[a, b], transform.rotation);
+                        Instantiate(king, positions[a, b] , transform.rotation);
                         break;
      
                 }
