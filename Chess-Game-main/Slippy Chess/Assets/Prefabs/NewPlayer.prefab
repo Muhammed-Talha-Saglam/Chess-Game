@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8369720223377370204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -4.4, y: 5.29, z: 6.82}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -125,8 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde26ec19aca1c8408cc4d4a6e7749f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 100006, guid: 1fc7dfffb398d0b48b056795e222cbc4, type: 3}
-  particleDeath: {fileID: 100008, guid: 6ff1350c2a91520479532984ca642474, type: 3}
+  particle: {fileID: 565316219118622936, guid: 0b1a6c6ff1351a5499f701255429547c, type: 3}
+  particle2: {fileID: 565316219118622936, guid: 40ff1e92435334d4e952a64f8fd61607,
+    type: 3}
   forwardSound: {fileID: 8300000, guid: 9cf8bb7b5bfeefe46ab1411ffda9b19f, type: 3}
   leftRighSound: {fileID: 8300000, guid: 0acf6cc972abdf44d8f356c29eed4f9c, type: 3}
 --- !u!82 &180774951165479784

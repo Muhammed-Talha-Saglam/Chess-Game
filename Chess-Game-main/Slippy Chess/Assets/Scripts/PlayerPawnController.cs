@@ -10,11 +10,12 @@ public class PlayerPawnController : MonoBehaviour
     GameObject gameController;
     GameManager gameControllerScript;
 
+
+    float speed;
     [SerializeField] GameObject particle;
-    [SerializeField] GameObject particleDeath;
+    [SerializeField] GameObject particle2;
 
     AudioSource audio;
-
     [SerializeField] AudioClip forwardSound;
     [SerializeField] AudioClip leftRighSound;
 
@@ -29,6 +30,7 @@ public class PlayerPawnController : MonoBehaviour
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameManager>();
+        speed = gameControllerScript.gameSpeed;
 
         audio = GetComponent<AudioSource>();
     }
@@ -37,30 +39,57 @@ public class PlayerPawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GoBack();
+        CanMove();
+        IsEndOfPath();
+        
+//        leftButton.gameObject.SetActive(CheckLeftMove());
+//        rightButton.gameObject.SetActive(CheckRightMove());
+//        upButton.gameObject.SetActive(CheckForwardMove());
+
+    }
+
+    private void GoBack()
+    {
+        if (!gameControllerScript.isGameOver)
+        {
+            transform.Translate(Vector3.back * Time.deltaTime * gameControllerScript.gameSpeed);
+        }
+    }
+
+    private void IsEndOfPath()
+    {
+        Ray ray = new Ray(transform.position, transform.forward);
+
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit, 3.0f);
 
 
+        if (hit.transform != null)
+        {
+            if(hit.transform.gameObject.CompareTag("Wall"))
+            {
+
+                Instantiate(particle2, hit.transform.position, transform.rotation);
+                Destroy(hit.transform.gameObject);
+                Destroy(gameObject);
+            }
+        }
+    }
+
+    void CanMove()
+    {
         var left45 = (transform.forward - transform.right).normalized;
 
         Ray ray22 = new Ray(transform.position, transform.forward);
         RaycastHit hitt;
 
-        Debug.DrawRay(ray22.origin, ray22.direction, Color.blue);
+   //     Debug.DrawRay(ray22.origin, ray22.direction, Color.blue);
         Physics.Raycast(ray22, out hitt, 4.0f);
 
-        if (!gameControllerScript.isGameOver)
-        {
-            transform.Translate(Vector3.back * Time.deltaTime * 4f);
-
-            
-
-
-            if(hitt.transform != null)
-            {
-                Debug.Log(" update - -- - " + hitt.transform.name);
-
-            }
-
-        }
+      
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -71,8 +100,8 @@ public class PlayerPawnController : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
 
-                Debug.Log(hit.transform.position +  " --- " + hit.transform.gameObject.name );
-                
+   //            Debug.Log(hit.transform.position + " --- " + hit.transform.gameObject.name);
+
 
 
                 var x = hit.transform.position.x - transform.position.x;
@@ -90,18 +119,20 @@ public class PlayerPawnController : MonoBehaviour
 
                 if (xRange1 && zRange1)
                 {
-                    if( CheckLeftMove())
+                    if (CheckLeftMove())
                     {
                         Instantiate(particle, hit.transform.position, transform.rotation);
+                        //Instantiate(particle2, hit.transform.position, transform.rotation);
                         MoveLeft();
                     }
                 }
 
                 if (xRange2 && zRange2)
                 {
-                    if( CheckRightMove() )
+                    if (CheckRightMove())
                     {
                         Instantiate(particle, hit.transform.position, transform.rotation);
+                        //Instantiate(particle2, hit.transform.position, transform.rotation);
                         MoveRight();
                     }
                 }
@@ -115,18 +146,12 @@ public class PlayerPawnController : MonoBehaviour
 
                 }
 
-            
-            
+
+
             }
         }
 
-        
-//        leftButton.gameObject.SetActive(CheckLeftMove());
-//        rightButton.gameObject.SetActive(CheckRightMove());
-//        upButton.gameObject.SetActive(CheckForwardMove());
-
     }
-
 
 
     private void OnTriggerEnter(Collider other)
@@ -141,7 +166,7 @@ public class PlayerPawnController : MonoBehaviour
 
     private void OnDestroy()
     {
-        Instantiate(particleDeath, transform.position, transform.rotation);
+  //      Instantiate(particleDeath, transform.position, transform.rotation);
     }
 
 
@@ -150,7 +175,7 @@ public class PlayerPawnController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.up * -1);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+  //      Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 1.0f);
@@ -193,17 +218,16 @@ public class PlayerPawnController : MonoBehaviour
 
         Ray ray = new Ray(transform.position, left45);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+  //      Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
 
         Physics.Raycast(ray, out hit, 4.0f);
 
-        if(hit.transform != null)
-        {
-            Debug.Log("Left move ----" + hit.transform.name);
-
-        }
+        //if(hit.transform != null)
+        //{
+        //    Debug.Log("Left move ----" + hit.transform.name);
+        //}
 
         return hit.transform != null ;
     }
@@ -216,7 +240,7 @@ public class PlayerPawnController : MonoBehaviour
         Ray ray = new Ray(transform.position, right45);
 
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+   //     Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
@@ -224,8 +248,9 @@ public class PlayerPawnController : MonoBehaviour
 
         if (hit.transform != null)
         {
-            Debug.Log("Right move ----" + hit.transform.name);
+            Debug.Log("right move ----" + hit.transform.name);
         }
+
         return hit.transform != null ;
     }
 
@@ -234,16 +259,17 @@ public class PlayerPawnController : MonoBehaviour
 
         Ray ray = new Ray(transform.position, transform.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+   //     Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
 
 
-        if (hit.transform != null)
-        {
-            Debug.Log("Forward move ----" + hit.transform.name);
-        }
+        //if (hit.transform != null)
+        //{
+        //    Debug.Log("Forward move ----" + hit.transform.name);
+        //}
+        
         return hit.transform == null;
     }
 }

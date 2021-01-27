@@ -129,18 +129,6 @@ public class SpawnManager : MonoBehaviour
 
     Vector3[,] positions ={
       {
-        new Vector3(-4.4f, 5.8f, 39.5f),
-        new Vector3(-1.4f, 5.8f, 39.5f),
-        new Vector3(1.6f, 5.8f, 39.5f),
-        new Vector3(4.55f, 5.8f, 39.5f),
-      },
-      {
-        new Vector3(-4.4f, 5.45f, 42.5f),
-        new Vector3(-1.4f, 5.45f, 42.5f),
-        new Vector3(1.6f, 5.45f, 42.5f),
-        new Vector3(4.55f, 5.45f, 42.5f),
-      },
-      {
         new Vector3(-4.4f, 5.45f, 45.5f),
         new Vector3(-1.4f, 5.45f, 45.5f),
         new Vector3(1.6f, 5.45f, 45.5f),
@@ -174,7 +162,20 @@ public class SpawnManager : MonoBehaviour
         new Vector3(-4.4f, 5.45f, 60.5f),
         new Vector3(-1.4f, 5.45f, 60.5f),
         new Vector3(1.6f, 5.45f, 60.5f),
-        new Vector3(4.55f, 5.45f, 60.5f),      }
+        new Vector3(4.55f, 5.45f, 60.5f),
+      },
+      {
+        new Vector3(-4.4f, 5.45f, 63.5f),
+        new Vector3(-1.4f, 5.45f, 63.5f),
+        new Vector3(1.6f, 5.45f, 63.5f),
+        new Vector3(4.55f, 5.45f, 63.5f),
+      },
+      {
+        new Vector3(-4.4f, 5.45f, 66.5f),
+        new Vector3(-1.4f, 5.45f, 66.5f),
+        new Vector3(1.6f, 5.45f, 66.5f),
+        new Vector3(4.55f, 5.45f, 66.5f),
+       }
     };
 
 
@@ -231,9 +232,9 @@ public class SpawnManager : MonoBehaviour
                     case "P":
                         Instantiate(pawn, positions[a,b], transform.rotation );
                         break;
-                    //case "p":
-                    //    Instantiate(player, positions[a, b] - new Vector3(0, 0.4f, 0), transform.rotation);
-                    //    break;
+                    case "p":
+                        Instantiate(player, positions[a, b] - new Vector3(0, 0.2f, 0), transform.rotation);
+                        break;
                     case "R":
                         Instantiate(rook, positions[a, b], transform.rotation);
                         break;
@@ -255,7 +256,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnNewPad()
     {
-        Instantiate(pad, new Vector3(1.6f, 5.05f, 48.5f), transform.rotation);
+        Instantiate(pad, new Vector3(1.6f, 5.05f, 54.5f), transform.rotation);
        
 
     }

@@ -8,8 +8,6 @@ public class ParticleController : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("Start Particle");
-
         Destroy(gameObject, 0.5f);
     }
 

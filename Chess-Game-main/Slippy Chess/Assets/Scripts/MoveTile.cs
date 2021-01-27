@@ -8,12 +8,14 @@ public class MoveTile : MonoBehaviour
     public GameObject gameController;
     GameManager gameControllerScript;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameManager>();
-        
+
         
     }
 
@@ -22,7 +24,7 @@ public class MoveTile : MonoBehaviour
     {
         if(!gameControllerScript.isGameOver)
         {
-            transform.Translate(Vector3.back * Time.deltaTime * 4f);
+            transform.Translate(Vector3.back * Time.deltaTime * gameControllerScript.gameSpeed);
         }
     }
 

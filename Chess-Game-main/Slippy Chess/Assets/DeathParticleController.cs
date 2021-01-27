@@ -13,9 +13,7 @@ public class DeathParticleController : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         Invoke("playSound", 0);
-        Invoke("playSound", 1);
-        Invoke("playSound", 2);
-        Destroy(gameObject, 3.0f);
+        Destroy(gameObject, 2.0f);
     }
 
     void playSound()

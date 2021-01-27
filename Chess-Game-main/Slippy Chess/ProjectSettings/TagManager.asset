@@ -17,6 +17,7 @@ TagManager:
   - RedTile
   - Spawner
   - Pad
+  - Wall
   layers:
   - Default
   - TransparentFX

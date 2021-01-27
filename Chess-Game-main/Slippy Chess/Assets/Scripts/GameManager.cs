@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button restartButton;
 
 
-
+    public float gameSpeed = 5.0f;
     int seconds = 0;
     public bool isGameOver;
     

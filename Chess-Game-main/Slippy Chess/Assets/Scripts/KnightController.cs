@@ -9,6 +9,7 @@ public class KnightController : MonoBehaviour
     public GameObject gameController;
     GameManager gameControllerScript;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +26,7 @@ public class KnightController : MonoBehaviour
     {
         if (!gameControllerScript.isGameOver)
         {
-            transform.Translate(Vector3.right * Time.deltaTime * 4f);
+            transform.Translate(Vector3.right * Time.deltaTime * gameControllerScript.gameSpeed);
         }
 
 
