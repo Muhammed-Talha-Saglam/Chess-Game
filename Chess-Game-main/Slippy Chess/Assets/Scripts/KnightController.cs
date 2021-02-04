@@ -55,9 +55,11 @@ public class KnightController : MonoBehaviour
 
                 var newPosition = player.transform.position;
                 Destroy(player);
+                audio.PlayOneShot(deathSound);
+               
                 gameObject.transform.DOMove(newPosition, 1.0f);
-               // transform.position = newPosition;
-                gameControllerScript.isGameOver = true;
+           
+                gameControllerScript.FinishGame();
 
             }
             else if (xRange2 && zRange2)
