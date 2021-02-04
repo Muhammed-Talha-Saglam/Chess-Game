@@ -27,15 +27,18 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] TMP_Text timeText;
-    [SerializeField] TMP_Text gameOverText;
+    [SerializeField] Toggle toggleMusic;
+
     [SerializeField] Button restartButton;
+    [SerializeField] Button startButton;
 
 
-    public float gameSpeed = 5.0f;
-    int seconds = 0;
+    public float gameSpeed = 2.0f;
+    int points = 1;
     public bool isGameOver;
-    
-    
+    public bool isGameStarted;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,35 +46,64 @@ public class GameManager : MonoBehaviour
 
         DOTween.Init(true, true);
 
-        InvokeRepeating("Timer", 0, 1);
-        isGameOver = false;
+        isGameOver = true;
+
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void startGame()
     {
+        startButton.gameObject.SetActive(false);
+
+        GameObject.Find("Camera").transform.DOMove(new Vector3(0, 28.7f, -16.74f), 1.0f)
+            .OnComplete(() =>
+            {
+                isGameOver = false;
+
+
+                Invoke("IncreaseSpeed", 5.0f);
+                Invoke("IncreaseSpeed", 10.0f);
+                Invoke("IncreaseSpeed", 15.0f);
+            });
+
+    }
+
+    void IncreaseSpeed()
+    {
+        gameSpeed += 1.0f;
+    }
+
+   public void IncreasePoints()
+    {
+           points += 1;
+           timeText.text = "Points: " + points;
+            
         
     }
 
-    void Timer()
+    public void toggleSound()
     {
-        if (!isGameOver)
+        if(toggleMusic.GetComponent<Toggle>().isOn)
         {
-            seconds += 1;
-            timeText.text = "Time: " + seconds;
+            GetComponent<AudioSource>().Play();
+
         } else
         {
-            gameOverText.enabled = true;
-            restartButton.gameObject.SetActive(true);
+            GetComponent<AudioSource>().Stop();
         }
+    }
 
+    public void FinishGame()
+    {
+        isGameOver = true;
+        Invoke("RestartGame", 2.0f);
     }
 
 
    public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
 }

@@ -11,11 +11,18 @@ public class KingController : MonoBehaviour
     public GameObject gameController;
     GameManager gameControllerScript;
 
+
+    [SerializeField] AudioClip deathSound;
+    AudioSource audio;
+
+
     // Start is called before the first frame update
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController");
         gameControllerScript = gameController.GetComponent<GameManager>();
+
+        audio = GetComponent<AudioSource>();
 
 
     }
@@ -106,13 +113,12 @@ public class KingController : MonoBehaviour
                 Vector3 newPosition = hit.transform.position;
 
                 Destroy(hit.transform.gameObject);
+                audio.PlayOneShot(deathSound);
 
                 gameObject.transform.DOMove(newPosition, 1.0f);
 
-//                gameObject.transform.position = newPosition;
-                gameControllerScript.isGameOver = true;
+                gameControllerScript.FinishGame();
 
-                // Debug.Log(hit.transform.gameObject.name);
             }
         }
     }

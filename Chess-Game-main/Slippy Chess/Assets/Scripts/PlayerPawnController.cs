@@ -71,7 +71,7 @@ public class PlayerPawnController : MonoBehaviour
         {
             if(hit.transform.gameObject.CompareTag("Wall"))
             {
-
+                gameControllerScript.IncreasePoints();
                 Instantiate(particle2, hit.transform.position, transform.rotation);
                 Destroy(hit.transform.gameObject);
                 Destroy(gameObject);
@@ -146,8 +146,6 @@ public class PlayerPawnController : MonoBehaviour
 
                 }
 
-
-
             }
         }
 
@@ -158,57 +156,38 @@ public class PlayerPawnController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Destroyer"))
         {
-            gameControllerScript.isGameOver = true;
+            gameControllerScript.FinishGame();
             Destroy(gameObject);
 
         }
     }
 
-    private void OnDestroy()
-    {
-  //      Instantiate(particleDeath, transform.position, transform.rotation);
-    }
 
-
-
-    void ShowMovePosition()
-    {
-        Ray ray = new Ray(transform.position, transform.up * -1);
-
-  //      Debug.DrawRay(ray.origin, ray.direction, Color.blue);
-
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit, 1.0f);
-
-        Debug.Log(hit.transform.name);
-
-
-
-
-    }
 
     public void MoveLeft()
     {
 
-        audio.PlayOneShot(leftRighSound);
         transform.position += new Vector3(-3.0f, 0, 3.0f);
-        
+        audio.PlayOneShot(leftRighSound);
+        gameControllerScript.IncreasePoints();
 
     }
 
 
     public void MoveRight()
     {
-        audio.PlayOneShot(leftRighSound);
         transform.position += new Vector3(3.0f, 0, 3.0f);
-    
+        audio.PlayOneShot(leftRighSound);
+        gameControllerScript.IncreasePoints();
+
     }
 
     public void MoveForward()
     {
-        audio.PlayOneShot(forwardSound);
         transform.position += new Vector3(0, 0, 3.0f);
-     
+        audio.PlayOneShot(forwardSound);
+        gameControllerScript.IncreasePoints();
+
     }
 
 
