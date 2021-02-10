@@ -25,7 +25,7 @@ public class RookController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         Ray ray1 = new Ray(transform.position, transform.forward );
@@ -70,7 +70,11 @@ public class RookController : MonoBehaviour
                 Vector3 newPosition = hit.transform.position;
 
                 Destroy(hit.transform.gameObject);
-                audio.PlayOneShot(deathSound);
+
+                if (gameControllerScript.isSoundOn == "on")
+                {
+                    audio.PlayOneShot(deathSound);
+                }
 
                 gameObject.transform.DOMove(newPosition, 1.0f);
 

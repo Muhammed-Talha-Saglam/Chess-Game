@@ -14,10 +14,7 @@ public class BigStoneController : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
+
 
 
 

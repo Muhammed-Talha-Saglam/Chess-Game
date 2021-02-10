@@ -18,6 +18,7 @@ public class PlayerPawnController : MonoBehaviour
     AudioSource audio;
     [SerializeField] AudioClip forwardSound;
     [SerializeField] AudioClip leftRighSound;
+    [SerializeField] AudioClip deathSound;
 
 
     //[SerializeField] Button leftButton;
@@ -37,7 +38,7 @@ public class PlayerPawnController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         GoBack();
         CanMove();
@@ -152,15 +153,31 @@ public class PlayerPawnController : MonoBehaviour
     }
 
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Destroyer"))
         {
-            gameControllerScript.FinishGame();
-            Destroy(gameObject);
+
+
+            if (gameControllerScript.isSoundOn == "on")
+            {
+                audio.PlayOneShot(deathSound);
+            }
+            Invoke("Die", 2.0f);
 
         }
     }
+
+    void Die()
+    {
+        gameControllerScript.FinishGame();
+
+        Destroy(gameObject);
+
+    }
+
 
 
 
@@ -168,7 +185,10 @@ public class PlayerPawnController : MonoBehaviour
     {
 
         transform.position += new Vector3(-3.0f, 0, 3.0f);
-        audio.PlayOneShot(leftRighSound);
+        if(gameControllerScript.isSoundOn == "on")
+        {
+            audio.PlayOneShot(leftRighSound);
+        }
         gameControllerScript.IncreasePoints();
 
     }
@@ -177,7 +197,10 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveRight()
     {
         transform.position += new Vector3(3.0f, 0, 3.0f);
-        audio.PlayOneShot(leftRighSound);
+        if (gameControllerScript.isSoundOn == "on")
+        {
+            audio.PlayOneShot(leftRighSound);
+        }
         gameControllerScript.IncreasePoints();
 
     }
@@ -185,7 +208,10 @@ public class PlayerPawnController : MonoBehaviour
     public void MoveForward()
     {
         transform.position += new Vector3(0, 0, 3.0f);
-        audio.PlayOneShot(forwardSound);
+        if (gameControllerScript.isSoundOn == "on")
+        {
+            audio.PlayOneShot(forwardSound);
+        }
         gameControllerScript.IncreasePoints();
 
     }

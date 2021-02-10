@@ -24,7 +24,7 @@ public class PawnController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         var right45 = (transform.forward + transform.right).normalized;
         // since transform.left doesn't exist, you can use -transform.right instead
@@ -61,7 +61,11 @@ public class PawnController : MonoBehaviour
                 Vector3 newPosition = hit.transform.position;
 
                 Destroy(hit.transform.gameObject);
-                audio.PlayOneShot(deathSound);
+
+                if (gameControllerScript.isSoundOn == "on")
+                {
+                    audio.PlayOneShot(deathSound);
+                }
 
                 gameObject.transform.DOMove(newPosition, 1.0f);
 

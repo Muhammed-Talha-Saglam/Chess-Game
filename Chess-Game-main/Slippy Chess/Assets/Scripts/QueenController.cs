@@ -20,7 +20,7 @@ public class QueenController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 
         var right45 = (transform.forward + transform.right).normalized;

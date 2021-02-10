@@ -20,7 +20,7 @@ public class MoveTile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if(!gameControllerScript.isGameOver)
         {

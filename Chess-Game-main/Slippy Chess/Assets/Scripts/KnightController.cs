@@ -26,7 +26,7 @@ public class KnightController : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (!gameControllerScript.isGameOver)
         {
@@ -55,8 +55,10 @@ public class KnightController : MonoBehaviour
 
                 var newPosition = player.transform.position;
                 Destroy(player);
-                audio.PlayOneShot(deathSound);
-               
+                if (gameControllerScript.isSoundOn == "on")
+                {
+                    audio.PlayOneShot(deathSound);
+                }
                 gameObject.transform.DOMove(newPosition, 1.0f);
            
                 gameControllerScript.FinishGame();
@@ -66,7 +68,11 @@ public class KnightController : MonoBehaviour
             {
                 var newPosition = player.transform.position;
                 Destroy(player);
-                audio.PlayOneShot(deathSound);
+
+                if (gameControllerScript.isSoundOn == "on")
+                {
+                    audio.PlayOneShot(deathSound);
+                }
 
                 gameObject.transform.DOMove(newPosition, 1.0f);
                 

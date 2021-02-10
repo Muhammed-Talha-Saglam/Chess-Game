@@ -130,6 +130,7 @@ MonoBehaviour:
     type: 3}
   forwardSound: {fileID: 8300000, guid: 9cf8bb7b5bfeefe46ab1411ffda9b19f, type: 3}
   leftRighSound: {fileID: 8300000, guid: 0acf6cc972abdf44d8f356c29eed4f9c, type: 3}
+  deathSound: {fileID: 8300000, guid: 9d04f1c32d66b4d45987217bca24f425, type: 3}
 --- !u!82 &180774951165479784
 AudioSource:
   m_ObjectHideFlags: 0

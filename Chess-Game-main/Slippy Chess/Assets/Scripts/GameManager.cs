@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
 
 
+
     [SerializeField] TMP_Text timeText;
     [SerializeField] Toggle toggleMusic;
 
@@ -34,10 +35,10 @@ public class GameManager : MonoBehaviour
 
 
     public float gameSpeed = 2.0f;
-    int points = 1;
+    int points = 0;
     public bool isGameOver;
     public bool isGameStarted;
-
+    public string isSoundOn;
 
 
     // Start is called before the first frame update
@@ -47,7 +48,8 @@ public class GameManager : MonoBehaviour
         DOTween.Init(true, true);
 
         isGameOver = true;
-
+        isSoundOn = PlayerPrefs.GetString("isSoundOn", "on");
+        toggleMusic.GetComponent<Toggle>().SetIsOnWithoutNotify(isSoundOn == "on" ? true : false);
 
     }
 
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         startButton.gameObject.SetActive(false);
 
-        GameObject.Find("Camera").transform.DOMove(new Vector3(0, 28.7f, -16.74f), 1.0f)
+        GameObject.Find("Camera").transform.DOMove(new Vector3(0, 22.4f, -15.3f), 1.0f)
             .OnComplete(() =>
             {
                 isGameOver = false;
@@ -63,9 +65,10 @@ public class GameManager : MonoBehaviour
 
                 Invoke("IncreaseSpeed", 5.0f);
                 Invoke("IncreaseSpeed", 10.0f);
-                Invoke("IncreaseSpeed", 15.0f);
+
             });
 
+        GameObject.Find("Camera").transform.rotation.eulerAngles.Set(-4.78f, 0.53f, 0.033f);
     }
 
     void IncreaseSpeed()
@@ -75,21 +78,36 @@ public class GameManager : MonoBehaviour
 
    public void IncreasePoints()
     {
-           points += 1;
-           timeText.text = "Points: " + points;
-            
-        
+        points += 1;
+
+        if (points < 10)
+        {
+            timeText.text = "Points: 00" + points;
+        } 
+
+        else if (points < 100){
+            timeText.text = "Points: 0" + points;
+        } 
+
+        else
+        {
+            timeText.text = "Points: " + points;
+        }
+
+
     }
 
     public void toggleSound()
     {
         if(toggleMusic.GetComponent<Toggle>().isOn)
         {
-            GetComponent<AudioSource>().Play();
+            PlayerPrefs.SetString("isSoundOn", "on");
+            isSoundOn = "on";
 
         } else
         {
-            GetComponent<AudioSource>().Stop();
+            PlayerPrefs.SetString("isSoundOn", "off");
+            isSoundOn = "off";
         }
     }
 
