@@ -37,8 +37,8 @@ public class PlayerController : MonoBehaviour
 
             if(Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.transform.position);
-
+/*                Debug.Log(hit.transform.position);
+*/
                 var x = Mathf.Abs(hit.transform.position.x - transform.position.x);
                 var z = Mathf.Abs(hit.transform.position.z - transform.position.z);
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
                         Vector3 newPos = new Vector3(hit.transform.position.x, 5.6f, hit.transform.position.z);
 
                         transform.position = newPos;
-                        Debug.Log(hit.transform.position);
+         //               Debug.Log(hit.transform.position);
                     }
                     else
                     {
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
                         Vector3 newPos = new Vector3(hit.transform.position.x, 5.6f, hit.transform.position.z);
 
                         transform.position = newPos;
-                        Debug.Log(hit.transform.position);
+                //        Debug.Log(hit.transform.position);
                     }
                     else
                     {
@@ -105,21 +105,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void ShowMovePosition()
-    {
-        Ray ray = new Ray(transform.position, transform.up * -1);
-
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
-
-        RaycastHit hit;
-        Physics.Raycast(ray, out hit, 1.0f);
-
-        Debug.Log(hit.transform.name);
-
-
-
-
-    }
 
     public void MoveLeft()
     {
@@ -129,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
         Ray ray = new Ray(transform.position, left45);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+   //     Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
@@ -153,7 +138,7 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(transform.position, right45);
 
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+    //    Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);
@@ -171,7 +156,7 @@ public class PlayerController : MonoBehaviour
 
         Ray ray = new Ray(transform.position, transform.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+   //     Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 4.0f);

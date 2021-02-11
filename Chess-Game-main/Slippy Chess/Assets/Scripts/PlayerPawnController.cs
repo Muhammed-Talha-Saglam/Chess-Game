@@ -62,7 +62,7 @@ public class PlayerPawnController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, transform.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+    //    Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         RaycastHit hit;
         Physics.Raycast(ray, out hit, 3.0f);
@@ -88,6 +88,7 @@ public class PlayerPawnController : MonoBehaviour
         RaycastHit hitt;
 
    //     Debug.DrawRay(ray22.origin, ray22.direction, Color.blue);
+       
         Physics.Raycast(ray22, out hitt, 4.0f);
 
       
@@ -253,7 +254,7 @@ public class PlayerPawnController : MonoBehaviour
 
         if (hit.transform != null)
         {
-            Debug.Log("right move ----" + hit.transform.name);
+     //       Debug.Log("right move ----" + hit.transform.name);
         }
 
         return hit.transform != null ;

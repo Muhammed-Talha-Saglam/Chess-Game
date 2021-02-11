@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         startButton.gameObject.SetActive(false);
 
-        GameObject.Find("Camera").transform.DOMove(new Vector3(0, 22.4f, -15.3f), 1.0f)
+        GameObject.Find("Camera").transform.DOMove(new Vector3(0.18f, 18.39f, -17.82f), 1.0f)
             .OnComplete(() =>
             {
                 isGameOver = false;
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
 
             });
 
-        GameObject.Find("Camera").transform.rotation.eulerAngles.Set(-4.78f, 0.53f, 0.033f);
+        GameObject.Find("Camera").transform.rotation.eulerAngles.Set(25.552f, 0f, 0f);
     }
 
     void IncreaseSpeed()

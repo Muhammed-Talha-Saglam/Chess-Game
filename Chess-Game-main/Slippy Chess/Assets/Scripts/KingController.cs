@@ -55,16 +55,16 @@ public class KingController : MonoBehaviour
 
 
 
-        Debug.DrawRay(ray1.origin, ray1.direction, Color.blue);
+     /*   Debug.DrawRay(ray1.origin, ray1.direction, Color.blue);
         Debug.DrawRay(ray2.origin, ray2.direction, Color.blue);
         Debug.DrawRay(ray3.origin, ray3.direction, Color.blue);
-        Debug.DrawRay(ray4.origin, ray4.direction, Color.blue);
+        Debug.DrawRay(ray4.origin, ray4.direction, Color.blue);*/
 
 
-        Debug.DrawRay(ray5.origin, ray5.direction, Color.blue);
+     /*   Debug.DrawRay(ray5.origin, ray5.direction, Color.blue);
         Debug.DrawRay(ray6.origin, ray6.direction, Color.blue);
         Debug.DrawRay(ray7.origin, ray7.direction, Color.blue);
-        Debug.DrawRay(ray8.origin, ray8.direction, Color.blue);
+        Debug.DrawRay(ray8.origin, ray8.direction, Color.blue);*/
 
         RaycastHit hit1;
         Physics.Raycast(ray1, out hit1, 4.0f);

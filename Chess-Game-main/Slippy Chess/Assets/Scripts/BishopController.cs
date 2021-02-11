@@ -37,11 +37,11 @@ public class BishopController : MonoBehaviour
         Ray ray4 = new Ray(transform.position, left45 * -1);
 
 
-        Debug.DrawRay(ray1.origin, ray1.direction, Color.blue);
+      /*  Debug.DrawRay(ray1.origin, ray1.direction, Color.blue);
         Debug.DrawRay(ray2.origin, ray2.direction, Color.blue);
         Debug.DrawRay(ray3.origin, ray3.direction, Color.blue);
         Debug.DrawRay(ray4.origin, ray4.direction, Color.blue);
-        
+        */
 
         RaycastHit hit1;
         Physics.Raycast(ray1, out hit1, Mathf.Infinity);
@@ -74,6 +74,7 @@ public class BishopController : MonoBehaviour
                 Vector3 newPosition = hit.transform.position;
 
                 Destroy(hit.transform.gameObject);
+                
                 if (gameControllerScript.isSoundOn == "on")
                 {
                     audio.PlayOneShot(deathSound);
