@@ -21,6 +21,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject bishop;
     public GameObject king;
 
+    private GameObject newPad;
 
 
 
@@ -12727,22 +12728,22 @@ public class SpawnManager : MonoBehaviour
                 switch(paths[randomPath, a, b])
                 {
                     case "N":
-                        Instantiate(knight, positions[a, b], knight.transform.rotation);
+                        Instantiate(knight, positions[a, b], knight.transform.rotation).transform.SetParent(newPad.transform);
                         break;
                     case "P":
-                        Instantiate(pawn, positions[a,b], transform.rotation );
+                        Instantiate(pawn, positions[a,b], transform.rotation ).transform.SetParent(newPad.transform);
                         break;
                     case "p":
-                        Instantiate(player, positions[a, b] - new Vector3(0, 0.2f, 0), transform.rotation);
+                        Instantiate(player, positions[a, b] - new Vector3(0, 0.2f, 0), transform.rotation).transform.SetParent(newPad.transform);
                         break;
                     case "R":
-                        Instantiate(rook, positions[a, b], transform.rotation);
+                        Instantiate(rook, positions[a, b], transform.rotation).transform.SetParent(newPad.transform);
                         break;
                     case "B":
-                        Instantiate(bishop, positions[a, b], transform.rotation);
+                        Instantiate(bishop, positions[a, b], transform.rotation).transform.SetParent(newPad.transform);
                         break;
                     case "K":
-                        Instantiate(king, positions[a, b] , transform.rotation);
+                        Instantiate(king, positions[a, b] , transform.rotation).transform.SetParent(newPad.transform);
                         break;
      
                 }
@@ -12756,7 +12757,7 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnNewPad()
     {
-        Instantiate(pad, new Vector3(1.6f, 5.05f, 54.5f), transform.rotation);
+        newPad = Instantiate(pad, new Vector3(1.6f, 5.05f, 54.5f), transform.rotation);
        
 
     }

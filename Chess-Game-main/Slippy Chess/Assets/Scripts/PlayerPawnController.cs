@@ -72,11 +72,25 @@ public class PlayerPawnController : MonoBehaviour
         {
             if(hit.transform.gameObject.CompareTag("Wall"))
             {
+                
                 gameControllerScript.IncreasePoints();
                 Instantiate(particle2, hit.transform.position, transform.rotation);
-                Destroy(hit.transform.gameObject);
-                Destroy(gameObject);
-            }
+                GameObject pad = GameObject.FindGameObjectWithTag("Pad");
+                for (int i=0; i<pad.transform.childCount; i++ )
+                {
+                    GameObject go = pad.transform.GetChild(i).gameObject;
+                    Debug.Log(go.name);
+
+                    if (go.name == "A1")
+                    {
+                        go.transform.SetParent(null);
+                        continue;
+                    } 
+                    Destroy(go);
+ 
+                }
+                Destroy(pad);
+            }            
         }
     }
 
